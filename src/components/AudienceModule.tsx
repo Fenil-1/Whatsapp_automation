@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { generateMockData } from '@/data/mockData';
-import { Search, SlidersHorizontal, Layers, Info } from 'lucide-react';
+"use client";
 
-const { groups, contacts } = generateMockData();
+import React, { useState } from 'react';
+
+import { Search, SlidersHorizontal, Layers, Info } from 'lucide-react';
+import { contacts, groups} from '@/data/mockData';
 
 export default function AudienceModule() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -83,7 +84,7 @@ export default function AudienceModule() {
               </tr>
             </thead>
             <tbody className="divide-y divide-zinc-900 text-xs font-medium text-zinc-300">
-              {filteredContacts.slice(0, 12).map((c) => (
+              {filteredContacts.slice(0, 15).map((c) => (
                 <tr key={c.id} className="hover:bg-zinc-900/40 transition-colors group">
                   <td className="py-3.5 px-4 flex items-center space-x-3">
                     <div className="h-7 w-7 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center font-bold text-[10px] text-zinc-400">

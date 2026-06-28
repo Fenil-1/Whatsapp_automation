@@ -1,15 +1,15 @@
 import React from 'react';
 import { ShieldCheck, RefreshCw } from 'lucide-react';
-import { generateMockData } from '@/data/mockData';
 
-const { contacts } = generateMockData();
+// import { audienceMockData } from "@/data/mockData";
+import { contacts } from '@/data/mockData';
 
 export default function TrackingModule() {
   return (
     <div className="space-y-8 animate-in fade-in duration-300">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-zinc-50">Delivery Intelligence & Live Tracking</h1>
-        <p className="text-sm text-zinc-400 mt-1">Deep structural overview of telemetry metrics, bypass vectors, and compliance logs.</p>
+        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-50">Delivery Intelligence & Live Tracking</h1>
+        <p className="text-xs sm:text-sm text-zinc-400 mt-1">Deep structural overview of telemetry metrics, bypass vectors, and compliance logs.</p>
       </div>
 
       <div className="space-y-3">
@@ -24,28 +24,29 @@ export default function TrackingModule() {
             { count: '43 numbers dropped', label: 'Invalid format/Meta blocklist criteria', color: 'border-rose-500/30 bg-rose-500/5 text-rose-400' },
             { count: '18 messages deferred', label: 'Daily business account tier threshold limit', color: 'border-blue-500/30 bg-blue-500/5 text-blue-400' }
           ].map((card, idx) => (
-            <div key={idx} className={`p-4 rounded-xl border ${card.color} flex flex-col justify-between`}>
+            <div key={idx} className={`p-4 rounded-xl border ${card.color} flex flex-col justify-between gap-1`}>
               <h4 className="text-xs font-bold tracking-tight">{card.count}</h4>
-              <p className="text-[11px] text-zinc-400 mt-1.5 leading-snug">{card.label}</p>
+              <p className="text-[11px] text-zinc-400 leading-snug">{card.label}</p>
             </div>
           ))}
         </div>
       </div>
 
       <div className="bg-zinc-900/20 border border-zinc-800/80 rounded-2xl overflow-hidden">
-        <div className="p-4 bg-zinc-900/40 border-b border-zinc-800 flex justify-between items-center">
+        <div className="p-4 bg-zinc-900/40 border-b border-zinc-800 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
           <div>
             <h3 className="text-xs font-semibold text-zinc-200">Real-time Transmission Diagnostics Stack</h3>
             <p className="text-[11px] text-zinc-500 mt-0.5">Live stream telemetry logs from downstream micro-routing clusters</p>
           </div>
-          <div className="flex items-center space-x-2 text-[10px] bg-zinc-950 px-2.5 py-1 rounded-lg border border-zinc-800 font-mono text-zinc-400">
+          <div className="flex items-center self-start sm:self-auto space-x-2 text-[10px] bg-zinc-950 px-2.5 py-1 rounded-lg border border-zinc-800 font-mono text-zinc-400">
             <RefreshCw className="h-3 w-3 animate-spin text-emerald-400" />
             <span>Streaming Live Nodes</span>
           </div>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+        {/* Scroll Containment layer wrapper to safeguard mobile screens */}
+        <div className="w-full overflow-x-auto separation-layer">
+          <table className="w-full text-left border-collapse min-w-[760px]">
             <thead>
               <tr className="border-b border-zinc-800 text-zinc-500 text-[10px] uppercase font-bold tracking-wider bg-zinc-900/10">
                 <th className="py-3 px-4">Identity Meta Phone</th>
@@ -61,7 +62,10 @@ export default function TrackingModule() {
                 const computedStatus = simulatedStatuses[i % simulatedStatuses.length];
                 return (
                   <tr key={c.id} className="hover:bg-zinc-900/40 transition-colors">
-                    <td className="py-3 px-4 font-sans font-semibold text-zinc-200">{c.name} <span className="text-zinc-500 block font-mono font-normal text-[11px] mt-0.5">{c.phone}</span></td>
+                    <td className="py-3 px-4 font-sans font-semibold text-zinc-200">
+                      {c.name} 
+                      <span className="text-zinc-500 block font-mono font-normal text-[11px] mt-0.5">{c.phone}</span>
+                    </td>
                     <td className="py-3 px-4 text-zinc-400 font-sans text-xs">{c.groups[0]}</td>
                     <td className="py-3 px-4 text-zinc-500 text-[11px]">2026-06-28 00:29:{30 + i} AM</td>
                     <td className="py-3 px-4">
