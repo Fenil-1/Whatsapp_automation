@@ -169,7 +169,7 @@ export default function BroadcastBuilder() {
               </div>
               <div>
                 <p className="text-xs font-semibold tracking-tight">
-                  Vortex Outbound Gateway
+                  Whatsapp Automation Gateway
                 </p>
                 <p className="text-[9px] text-emerald-200/80">
                   Official Verified Cloud Account
